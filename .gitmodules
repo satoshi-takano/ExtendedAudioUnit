@@ -1,0 +1,3 @@
+[submodule "cpp-events"]
+	path = cpp-events
+	url = git@github.com:satoshi-takano/cpp-events.git

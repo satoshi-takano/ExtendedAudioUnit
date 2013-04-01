@@ -94,6 +94,8 @@
 		CB74E55D170948D8003A24DB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB74E55C170948D8003A24DB /* CFNetwork.framework */; };
 		CB74E55F170948DE003A24DB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB74E55E170948DE003A24DB /* Accelerate.framework */; };
 		CB74E561170948E8003A24DB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB74E560170948E8003A24DB /* AudioToolbox.framework */; };
+		CB74E57517094A8D003A24DB /* FFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB74E57317094A8D003A24DB /* FFT.cpp */; };
+		CB74E57617094A8D003A24DB /* FFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB74E57317094A8D003A24DB /* FFT.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +212,12 @@
 		CB74E55C170948D8003A24DB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CB74E55E170948DE003A24DB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		CB74E560170948E8003A24DB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CB74E56F17094A64003A24DB /* Event.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Event.hpp; sourceTree = "<group>"; };
+		CB74E57017094A64003A24DB /* EventReceiver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EventReceiver.hpp; sourceTree = "<group>"; };
+		CB74E57117094A64003A24DB /* EventSender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EventSender.hpp; sourceTree = "<group>"; };
+		CB74E57217094A64003A24DB /* ReceiverBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReceiverBase.hpp; sourceTree = "<group>"; };
+		CB74E57317094A8D003A24DB /* FFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFT.cpp; sourceTree = "<group>"; };
+		CB74E57717094AAB003A24DB /* FFT.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FFT.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +283,7 @@
 		CB74E414170942EA003A24DB /* ExtendedAudioGraphService */ = {
 			isa = PBXGroup;
 			children = (
+				CB74E56E17094A64003A24DB /* src */,
 				CB74E4BE17094694003A24DB /* sound */,
 				CB74E41D170942EA003A24DB /* AppDelegate.h */,
 				CB74E41E170942EA003A24DB /* AppDelegate.mm */,
@@ -346,6 +355,8 @@
 		CB74E4BF17094694003A24DB /* analysis */ = {
 			isa = PBXGroup;
 			children = (
+				CB74E57317094A8D003A24DB /* FFT.cpp */,
+				CB74E57717094AAB003A24DB /* FFT.hpp */,
 				CB74E4C017094694003A24DB /* BPMTracker.cpp */,
 				CB74E4C117094694003A24DB /* BPMTracker.hpp */,
 				CB74E4C217094694003A24DB /* OnsetVectorizer.cpp */,
@@ -451,6 +462,18 @@
 				CB74E51417094694003A24DB /* Thread.hpp */,
 			);
 			path = thread;
+			sourceTree = "<group>";
+		};
+		CB74E56E17094A64003A24DB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CB74E56F17094A64003A24DB /* Event.hpp */,
+				CB74E57017094A64003A24DB /* EventReceiver.hpp */,
+				CB74E57117094A64003A24DB /* EventSender.hpp */,
+				CB74E57217094A64003A24DB /* ReceiverBase.hpp */,
+			);
+			name = src;
+			path = "../../cpp-events/src";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -599,6 +622,7 @@
 				CB74E55617094694003A24DB /* HTTPLoader.cpp in Sources */,
 				CB74E55817094694003A24DB /* OfflineConverter.cpp in Sources */,
 				CB74E55A17094694003A24DB /* Thread.cpp in Sources */,
+				CB74E57517094A8D003A24DB /* FFT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +666,7 @@
 				CB74E55717094694003A24DB /* HTTPLoader.cpp in Sources */,
 				CB74E55917094694003A24DB /* OfflineConverter.cpp in Sources */,
 				CB74E55B17094694003A24DB /* Thread.cpp in Sources */,
+				CB74E57617094A8D003A24DB /* FFT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
