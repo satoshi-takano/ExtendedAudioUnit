@@ -1,14 +1,14 @@
 //
-//  ExtendedAudioGraphServiceTests.m
-//  ExtendedAudioGraphServiceTests
+//  ExtendedAudioUniTests.m
+//  ExtendedAudioUniTests
 //
 //  Created by Satoshi Takano on 4/1/13.
 //  Copyright (c) 2013 Satoshi Takano. All rights reserved.
 //
 
-#import "ExtendedAudioGraphServiceTests.h"
+#import "ExtendedAudioUniTests.h"
 
-@implementation ExtendedAudioGraphServiceTests
+@implementation ExtendedAudioUniTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in ExtendedAudioGraphServiceTests");
+    STFail(@"Unit tests are not implemented yet in ExtendedAudioUniTests");
 }
 
 @end
