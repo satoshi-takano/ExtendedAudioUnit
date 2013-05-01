@@ -20,6 +20,9 @@
     BasicExampleViewController* viewController = [[BasicExampleViewController alloc] init];
     self.window.rootViewController = viewController;
     
+    [viewController playLocalMP3];
+//    [viewController playRemoteMP3];
+    
     [self.window makeKeyAndVisible];
     
     return YES;

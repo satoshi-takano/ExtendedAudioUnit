@@ -10,4 +10,7 @@
 
 @interface BasicExampleViewController : UIViewController
 
+- (void)playLocalMP3;
+- (void)playRemoteMP3;
+
 @end
