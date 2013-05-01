@@ -71,6 +71,11 @@ void FFT::transform(float *normSignals, float *real, float *imag)
   memcpy(imag, mSplitComplex.imagp, bytesize);
 }
 
+void FFT::getPowerSpectrum(float *spectrum)
+{
+    vDSP_vdist(mSplitComplex.realp, 1, mSplitComplex.imagp, 1, spectrum, 1, mFFTSize);
+}
+
 void FFT::inverseTransform(float *real, float *imag, float *samples)
 {
   size_t bytesize = mFFTSize * sizeof(float);

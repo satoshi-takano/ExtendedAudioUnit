@@ -34,6 +34,7 @@ public:
   void transform(float* normSignals, float* powerSpectra);
   void transform(float* normSignals, float* real, float* imag);
   void inverseTransform(float* real, float* imag, float* samples);
+  void getPowerSpectrum(float* spectrum);
   
 private:
   void prepareFFT(int fftSize);

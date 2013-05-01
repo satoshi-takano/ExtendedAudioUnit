@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  ExtendedAudioUnit
+//  BasicExample
 //
-//  Created by Satoshi Takano on 4/3/13.
+//  Created by Satoshi Takano on 5/1/13.
 //  Copyright (c) 2013 Satoshi Takano. All rights reserved.
 //
 
