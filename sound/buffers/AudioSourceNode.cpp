@@ -347,7 +347,7 @@ OSStatus AudioSourceNode::render(void *inRefCon, AudioUnitRenderActionFlags *ioA
                 posref = node->loopOutFrame;
                 scratchingPosition = posref;
             }
-            else if (node->loopOutFrame < position) {
+            else if (node->loopOutFrame <= position) {
                 posref = node->loopInFrame;
                 scratchingPosition = posref;
             }
@@ -365,12 +365,15 @@ OSStatus AudioSourceNode::render(void *inRefCon, AudioUnitRenderActionFlags *ioA
                 int ofst = lin - pos;
                 if (diff < ofst) ofst = diff;
                 pos = lout - ofst;
+                node->mPosition = pos;
             }
-            else if (lout < pos) {
+            else if (lout <= pos) {
                 int ofst = pos - lout;
                 if (diff < ofst) ofst = diff;
                 pos = lin + ofst;
+                node->mPosition = pos;
             }
+
             if (inNumberFrames) {
                 node->readBuffer(inTimeStamp, 0, (UInt64)pos, inNumberFrames, data);
                 node->mPosition = pos + (float)inNumberFrames;

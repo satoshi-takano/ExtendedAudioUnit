@@ -13,15 +13,12 @@
 #import "AudioFileMemoryBufferNode.hpp"
 #import "AudioFileStreamingNode.hpp"
 
-@interface BasicExampleViewController ()
-
-@end
-
 @implementation BasicExampleViewController
 
 static AudioContext* context;
 static AudioNode* destination;
 static AudioNode* mixer;
+static AudioSouceNode* source;
 
 - (id)init {
     if (self = [super init]) {
@@ -37,6 +34,12 @@ static AudioNode* mixer;
     mixer = new AudioUnitNode(context->getGraph(), desc.setMixerType(kAudioUnitSubType_MultiChannelMixer));
 }
 
+- (void)deleteAudioNodes {
+    delete context; context = 0;
+    delete destination; destination = 0;
+    delete mixer; mixer = 0;
+}
+
 - (void)connect:(AudioSourceNode*)source {
     mixer->input(*source, 0, 0);
     destination->input(*mixer, 0, 0);
@@ -49,7 +52,7 @@ static AudioNode* mixer;
     [self createAudioNodes];
     
     NSURL* url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"local" ofType:@"mp3"]];
-    AudioSourceNode* source = new AudioFileMemoryBufferNode(context->getGraph(), (__bridge CFURLRef)url);
+    source = new AudioFileMemoryBufferNode(context->getGraph(), (__bridge CFURLRef)url);
     
     [self connect:source];
 }
@@ -59,13 +62,16 @@ static AudioNode* mixer;
     
     NSURL* url = [NSURL URLWithString:@"http://octoberlab.com/projects/resources/remote.mp3"];
     NSURL* tmpURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]];
-    AudioSourceNode* source = new AudioFileStreamingNode(context->getGraph(), (__bridge CFURLRef)url, (__bridge CFURLRef)tmpURL);
+    source = new AudioFileStreamingNode(context->getGraph(), (__bridge CFURLRef)url, (__bridge CFURLRef)tmpURL);
     
     [self connect:source];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)dealloc {
+    delete context;
+    delete destination;
+    delete mixer;
+    delete source;
 }
 
 @end

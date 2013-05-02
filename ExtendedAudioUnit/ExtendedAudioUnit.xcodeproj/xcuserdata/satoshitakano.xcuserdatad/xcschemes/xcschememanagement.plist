@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PluginExample.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>CBE0E24517311AE500576ED4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CBE9651C173234A100050DFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
